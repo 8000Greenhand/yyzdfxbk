@@ -1,343 +1,226 @@
-# 素材分析标准 · 可调用资产版 V2
+# 素材分析标准 · 工作台 V3
 
-## 0. 固定触发方式
+## 1. 任务
 
-当用户说“处理新增短视频”“分析新增内容”“按最新标准重跑”“把结果写回仓库”等类似指令时，自动执行本文件，不再要求用户重复解释标准。
+读取 `items/**/meta.json` 与 `items/**/transcript.md`，把分析写入对应 `analysis.md`。
 
-处理完成后只简短反馈：处理数量、跳过原因和最新 commit。完整结果写入对应条目的 `analysis.md`。
+不要修改逐字稿，不上传媒体，不调用付费服务，不自动发布。
 
----
+目标只有三个：
 
-## 1. 任务边界
+1. 让素材进入“链接处理”后能快速看懂；
+2. 提取真正可利用的技能和知识；
+3. 提取可供选题库调用的爆款表达。
 
-读取 `items/**/meta.json` 与 `items/**/transcript.md`，处理尚无有效 `analysis.md` 的条目；用户明确要求重跑时才覆盖旧结果。
+不是每条素材都必须产生知识或选题。
 
-禁止：
+## 2. 账号定位
 
-- 修改 `transcript.md`；
-- 上传视频或音频；
-- 调用付费 API；
-- 自动发布内容；
-- 把博主的主观说法直接当成事实；
-- 为了填满知识库而保存空洞理论。
+默认服务对象：不懂技术、但需要用AI完成运营、市场、商务、内容和职场任务的人。
 
-目标不是普通总结，也不是每条素材都强行改成选题。目标是把一条素材加工成以后可以再次调用的资产：
+分析要讲清：这是什么、有什么用、怎么用、有什么限制，以及哪些表达值得复刻。
 
-1. 可直接使用或验证的硬核知识；
-2. 可复用的爆款表达；
-3. 有完整问题闭环的内容包；
-4. 暂时不够成熟但值得继续核验的任务。
+## 3. 主分类
 
-无法进入以上四类的内容，只保留在素材总览，不进入知识库或选题库。
+每条素材只给一个主分类：
 
----
+- `skill_tools`：Skill、工具、网站、平台、插件、GitHub项目、产品功能；
+- `ai_knowledge`：模型更新、产品功能、额度、价格、规则、使用区别和AI知识；
+- `operations`：小红书、内容运营、达人、投放、数据、选题和标题；
+- `workplace_efficiency`：PPT、表格、会议、文案、资料整理和自动化；
+- `personal_growth`：学习、职业成长和经验；
+- `viral_reference`：主要价值是标题、封面、开头、结构或数据；
+- `manual_pending`：无法可靠判断。
 
-## 2. 用户账号默认定位
+既有知识又是爆款时，按主要内容分类，并设置 `is_viral_reference=true`。
 
-默认账号定位：
+## 4. 原内容分析
 
-**替不懂技术的业务型职场人，把复杂的 AI 变化、工具选择和真实用法试明白。**
+必须包含：
 
-主要人群：内容、运营、市场、商务、自媒体等非技术业务人员。
+- 原标题与封面表达；
+- 前3—5秒原话或概括；
+- 4—8步内容结构；
+- 为什么会点击、收藏、评论、分享；
+- 信任来自哪里；
+- 表达成立的条件；
+- 哪些地方不能照搬。
 
-账号提供三类价值：
+有互动数据时结合点赞、收藏、评论、分享和时长判断。
 
-- **讲明白**：产品更新、模型、额度、限制、入口和使用方式；
-- **选明白**：什么任务用什么工具，哪些不值得折腾；
-- **用起来**：通过真实工作、实测和工作台展示具体结果。
+## 5. 沉淀技能 / 知识
 
-表达原则：
+只提取具体、可利用的内容：Skill、工具、网站、平台、插件、项目、产品功能、设置、规则、教程和可核验结论。
 
-- 不卖课，不神化 AI，不讲暴富；
-- 不做纯新闻搬运、泛工具清单和空洞工作流；
-- 先讲用户任务和结果，再讲工具、Skill 或技术；
-- 明确事实、实测、推断和待验证项；
-- 一条内容解决一个完整问题，不把强相关问题机械拆成多条低密度内容。
+每条必须写清：
 
----
+- 名称；
+- 一句话用途；
+- 解决的问题；
+- 怎么使用；
+- 使用条件和限制；
+- 当前来源状态；
+- 下一步动作。
 
-## 3. 先判断用户为什么收藏这条素材
+以下内容不要独立沉淀：
 
-每条素材先判断 `source_intent`，可多选：
+- 只有“收集→分析→分类”这类抽象步骤；
+- “这个工作流很好”“这个Skill很强”；
+- 没有名称、入口、步骤或来源的推荐；
+- 没有新增信息的重复知识。
 
-- `hard_knowledge`：包含用户可能直接使用的工具、Skill、功能、设置、教程、数据、规则或实测结论；
-- `viral_reference`：数据表现或表达方式值得学习；
-- `both`：同时有硬核知识和爆款表达；
-- `inspiration_only`：只有灵感或观点，不足以形成可调用资产。
+知识分组：
 
-不要因为视频提到“工作流”“知识库”“Agent”就自动判定为硬核知识。只有讲清具体工具、入口、步骤、条件、限制或可验证结论，才有资格进入知识候选。
+- `skill_library`
+- `ai_knowledge`
+- `operations`
+- `workplace_efficiency`
+- `personal_growth`
+- `manual_pending`
 
----
+来源状态：
 
-## 4. 知识资产准入门禁
+- `mentioned`：素材中提到；
+- `source_confirmed`：找到原始来源；
+- `tested`：用户已实际使用。
 
-一个知识候选必须回答：
+## 6. 爆款复刻
 
-1. 它解决什么具体问题？
-2. 用户以后找到它，能立刻采取什么动作？
-3. 是否有入口、步骤、条件、限制、实例或可核验来源？
-4. 它目前是博主说法、官方确认，还是用户已实测？
-5. 它能否在未来再次被调用，而不是只有概念价值？
+数据或表达值得参考时设置 `is_viral_reference=true`。
 
-以下内容不得进入正式知识库：
+最多输出：
 
-- “抓取→去重→分析→分类→写入知识库”这类只有抽象步骤的描述；
-- “这个工作流很高效”“这个 Skill 很强”等无法复现的评价；
-- 没有名称、入口、操作方式或证据的工具推荐；
-- 仅凭博主口述、无法核验的价格、额度和能力；
-- 已经存在且没有新增信息的重复知识。
+- 1—3个标题改写；
+- 1—3个开头改写；
+- 内容结构；
+- 干货点；
+- 价值锚点；
+- 信任证据；
+- 适用主题；
+- 照搬风险。
 
-准入结果：
+标题不超过20字。不能只替换关键词，不能使用正文无法支撑的承诺。
 
-- `formal`：信息足以直接使用或帮助决策；
-- `pending`：有潜在价值，但需要找来源、安装或实测；
-- `material_only`：只留在素材总览。
+## 7. 选题种子
 
-验证状态：
+只有存在真实知识、真实案例或强爆款表达时才生成。
 
-- `pending_source`：只有二手说法；
-- `source_confirmed`：已找到官方、GitHub 或可靠原始来源；
-- `tested`：用户已经亲自使用；
-- `stable`：多次使用，边界和问题已基本清楚。
+每条包括：类别、选题名、用户问题、为什么值得做、状态。
 
----
+状态：`needs_evidence` 或 `ready`。
 
-## 5. 爆款表达资产标准
-
-不要只写“标题吸引人”“痛点前置”“内容有价值”。必须提取可以再次使用的具体表达资产：
-
-- 原始标题与封面如何组合；
-- 前 3 秒原话或核心表达；
-- 使用了什么数字、结果、身份、场景、反差或低门槛承诺；
-- 为什么用户会点击、收藏、评论或转发；
-- 该表达成立依赖什么证据或内容；
-- 适合迁移到什么主题；
-- 哪些情况下照搬会成为标题党；
-- 结合用户当前账号，可以怎样具体改写。
-
-分析数据时优先观察：收藏/点赞关系、分享、评论、内容时长、作者体量和发布时间。高收藏通常代表教程或长期使用价值；高点赞但低收藏可能更偏视觉刺激或推荐流。不得仅凭互动量高就判断适合用户账号。
-
----
-
-## 6. 内容包标准：信息密度来自完整闭环
-
-选题单位不是一个关键词，而是用户需要完成的一次决策或一个完整任务。
-
-例如“新版 ChatGPT 怎么用”可以同时包含模型选择、极速/中/高、Chat/Work/Codex 和额度，因为这些问题共同服务于同一次使用决策。只有目标用户、观看动机或证据素材明显不同，才拆成多条。
-
-正式内容包必须包含：
-
-- 用户正在完成什么任务；
-- 用户最担心什么；
-- 看完后必须做出什么决定或动作；
-- 一个明确结论；
-- 5—8 个支撑结论的关键问题；
-- 官方或实测证据；
-- 市场需求或高互动样本证据；
-- 现有内容缺口；
-- 一个最终标题和一组封面主副标题；
-- 前 3 秒开头；
-- 完整章节骨架和每段核心信息；
-- 需要补拍的截图、录屏、对比或实测；
-- 缺失事实和发布门禁。
-
-内容产品类型：
-
-- `complete_guide`：完整说明书/教程；
-- `comparison_test`：同题实测并给出选择结论；
-- `real_work_transformation`：真实工作改造与结果证明。
-
-如果证据不足、只能给泛建议，状态必须是 `needs_evidence` 或 `do_not_make`，不能标记为可制作。
-
----
-
-## 7. analysis.md 可读结构
-
-每个 `analysis.md` 必须包含以下 Markdown 部分：
+## 8. Markdown结构
 
 ```md
 # 分析结果
 
-## 1. 素材判断
-- 收藏目的：硬核知识 / 爆款样本 / 两者兼有 / 仅灵感
-- 一句话价值
-- 是否值得继续加工
+## 1. 素材分类
+- 主分类
+- 标签
+- 一句话总结
+- 是否可作爆款参考
 
-## 2. 原内容为什么有效
-### 原标题与封面
-### 开头原话
-### 内容展开顺序
-### 点击、收藏、评论、分享的原因
-### 成立条件与不可照搬之处
+## 2. 原内容分析
+### 标题与封面
+### 前3—5秒
+### 内容结构
+### 为什么会点、藏、评、转
+### 成立条件与不可照搬
 
-## 3. 可调用知识
-对每个候选写清：
-- 名称
-- 解决的问题
-- 对用户的直接价值
-- 如何使用
-- 使用门槛、费用、账号/API/电脑要求
-- 来源与验证状态
-- 下一步核验动作
-- 准入结果
+## 3. 沉淀技能 / 知识
 
-没有合格知识时明确写“无正式知识资产”。
+## 4. 爆款复刻
+### 可复刻标题
+### 可复刻开头
+### 结构
+### 干货点与价值锚点
+### 信任证据
+### 适用主题
+### 照搬风险
 
-## 4. 爆款表达资产
-对每个候选写清：
-- 原始表达
-- 可复用公式
-- 为什么有效
-- 成立条件
-- 适用主题
-- 对用户账号的具体迁移
-- 照搬风险
+## 5. 可进入选题库的方向
 
-## 5. 最推荐完整内容包
-### 用户任务与最终结论
-### 市场需求与答案缺口
-### 最终标题（20字以内）
-### 封面主副标题
-### 前3秒
-### 完整内容骨架
-### 画面与证据清单
-### 缺失信息
-### 发布门禁与状态
-
-若素材不适合独立形成内容，明确写“暂不制作”，不要硬给脚本。
+## 6. JSON
 ```
 
----
-
-## 8. JSON V2 数据结构
-
-`analysis.md` 必须包含一个合法 JSON 代码块。为兼容旧工作台，保留原字段，同时增加 V2 结构化字段。数组必须是真数组，不再把多个工具塞进一个长字符串。
+## 9. JSON V3
 
 ```json
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "card_value": "一句话价值",
   "summary": "内容总结",
-  "title_analysis": "原始标题与封面分析",
-  "opening_quote": "开头原话",
-  "opening_analysis": "开头分析",
-  "structure_analysis": "原内容展开顺序",
-  "viral_points": "传播与互动原因",
-  "tools_resources": "兼容旧工作台的可读摘要",
-  "reference_logic": "参考内容可迁移的底层逻辑",
-  "rewrite_positioning": "迁移到用户账号的判断",
-  "rewrite_target_user": "目标用户",
-  "rewrite_core_pain": "核心问题",
-  "rewrite_user_value": "用户看完获得什么",
-  "rewrite_best_topic": "最终标题，20字以内；不适合则写暂不制作",
-  "rewrite_titles": "兼容旧字段；只放最终标题或极少量备选",
-  "rewrite_cover": "封面主标题+副标题",
-  "rewrite_script": "证据充分时给完整脚本；不足时写需补充什么",
-  "rewrite_why": "为什么值得制作或为什么暂不制作",
-  "publish_gate": "发布门禁",
-  "primary_topic": "一级主题",
-  "content_format": "内容形式",
-  "use_modes": "利用方式",
-  "asset_level": "资产等级",
-  "tags": "标签",
-  "source_intent": ["hard_knowledge", "viral_reference"],
-  "asset_route": {
-    "material_overview": true,
-    "knowledge_base": true,
-    "topic_pool": true,
-    "reason": "路由理由"
+  "rewrite_best_topic": "最推荐选题；没有则写暂不生成",
+  "tags": ["标签"],
+  "primary_category": "skill_tools|ai_knowledge|operations|workplace_efficiency|personal_growth|viral_reference|manual_pending",
+  "category_label": "中文分类名",
+  "material_summary": "列表页一句话总结",
+  "is_viral_reference": true,
+  "content_analysis": {
+    "original_title": "原标题",
+    "cover_expression": "封面表达",
+    "title_cover": "标题与封面分析",
+    "opening_quote": "前3—5秒",
+    "opening_analysis": "开头分析",
+    "structure": ["步骤1", "步骤2"],
+    "click_reason": "点击原因",
+    "save_reason": "收藏原因",
+    "comment_reason": "评论原因",
+    "share_reason": "分享原因",
+    "trust_reason": "信任来源",
+    "conditions": ["成立条件"],
+    "copy_risks": ["不可照搬"]
   },
-  "knowledge_candidates": [
+  "knowledge_assets": [
     {
-      "canonical_name": "标准名称",
-      "asset_type": "tool|skill|plugin|platform_feature|verified_rule|how_to|decision_guide",
-      "user_problem": "解决的具体问题",
-      "direct_value": "对用户可直接产生什么价值",
-      "how_to_use": ["步骤1", "步骤2"],
-      "requirements": ["账号、代码、API、电脑或其他条件"],
-      "cost_and_limits": "费用、额度与限制；未知需明确写未知",
-      "use_scenarios": ["适用场景"],
-      "not_for": ["不适合场景"],
-      "evidence": [
-        {
-          "type": "source_video|official|github|user_test",
-          "detail": "证据说明",
-          "url": "可为空"
-        }
-      ],
-      "verification_status": "pending_source|source_confirmed|tested|stable",
-      "next_action": "下一步核验或使用动作",
-      "dedupe_key": "规范化名称+类型",
-      "admission": "formal|pending|material_only",
-      "admission_reason": "准入理由"
+      "canonical_name": "名称",
+      "knowledge_group": "skill_library|ai_knowledge|operations|workplace_efficiency|personal_growth|manual_pending",
+      "asset_type": "skill|tool|website|platform|plugin|github_project|platform_feature|fact|rule|decision|tutorial",
+      "one_liner": "一句话用途",
+      "what_it_solves": "解决的问题",
+      "how_to_use": ["步骤"],
+      "requirements_and_limits": "条件和限制",
+      "source_status": "mentioned|source_confirmed|tested",
+      "source_urls": ["来源"],
+      "next_action": "下一步",
+      "dedupe_key": "规范名称|类型"
     }
   ],
-  "expression_assets": [
+  "viral_replication": {
+    "reference_title": "原标题",
+    "reference_cover": "原封面",
+    "reference_opening": "原开头",
+    "title_rewrites": ["标题1", "标题2", "标题3"],
+    "opening_rewrites": ["开头1", "开头2", "开头3"],
+    "content_structure": ["结构"],
+    "dry_points": ["干货点"],
+    "value_anchors": ["价值锚点"],
+    "trust_proofs": ["信任证据"],
+    "suitable_topics": ["适用主题"],
+    "copy_risks": ["照搬风险"]
+  },
+  "topic_seeds": [
     {
-      "asset_type": "title_cover|opening|structure|trust_proof|save_trigger|comment_trigger",
-      "original_expression": "原始表达",
-      "reusable_pattern": "可复用结构，不写空洞大词",
-      "why_it_works": "用户心理与数据理由",
-      "conditions": ["成立条件"],
-      "suitable_topics": ["适用主题"],
-      "adaptation_for_user": "针对用户账号的具体改写",
-      "copy_risk": "照搬风险"
+      "topic_category": "AI领域|Skill工具|运营|职场效率|个人成长",
+      "topic_name": "20字以内",
+      "user_problem": "用户问题",
+      "why_now": "为什么值得做",
+      "source": "material",
+      "status": "needs_evidence|ready"
     }
-  ],
-  "topic_package": {
-    "content_product": "complete_guide|comparison_test|real_work_transformation",
-    "status": "needs_evidence|ready|do_not_make",
-    "user_task": "用户正在完成的任务",
-    "user_worry": "用户最担心什么",
-    "final_decision": "看完后能做出的决定或动作",
-    "core_conclusion": "明确结论",
-    "market_evidence": ["搜索、高互动、评论或真实问题证据"],
-    "content_gap": "现有答案缺口",
-    "main_title": "20字以内",
-    "cover_main": "封面主标题",
-    "cover_sub": "封面副标题",
-    "hook_3s": "前3秒",
-    "outline": [
-      {
-        "section": "章节名",
-        "key_message": "本段核心信息",
-        "evidence": "需要的事实、画面或实测"
-      }
-    ],
-    "visual_evidence_needed": ["截图、录屏、对比或实测素材"],
-    "missing_information": ["发布前必须补齐的信息"],
-    "search_keywords": ["搜索词"],
-    "publish_goal": "搜索|收藏|推荐|涨粉|信任"
-  }
+  ]
 }
 ```
 
----
+## 10. 写回检查
 
-## 9. 发布门禁
+- 主分类是否可靠；
+- 一句话总结是否一眼能懂；
+- 知识是否具体可利用；
+- 来源状态是否诚实；
+- 爆款改写是否只替换关键词；
+- 标题是否不超过20字；
+- 是否为了凑数硬生成知识或选题；
+- JSON是否可解析。
 
-出现以下任一情况，不得标记 `ready`：
-
-- 只有标题钩子，没有完整答案；
-- 把一个完整问题机械拆成多个薄选题；
-- 只讲 AI 提效、工作流或知识库概念，没有可执行动作；
-- 工具、Skill 或产品信息缺少来源、入口、条件和限制；
-- 需要实测却没有成品或对比；
-- 标题承诺超过正文证据；
-- 与市场高互动内容相比，没有更完整、更新、更可信或更易操作的优势；
-- 目标用户与账号定位不匹配；
-- 事实、推断和博主观点混在一起；
-- 语言像 AI 总结稿，缺少真实场景和具体细节。
-
----
-
-## 10. 完成反馈
-
-处理结束只反馈：
-
-- 已处理多少条；
-- 其中多少条产生正式知识、待验证知识、爆款表达和可制作内容包；
-- 哪些被判定仅保留素材；
-- 最新 commit。
-
-不要把完整分析贴回聊天。
+处理结束只反馈数量、分类、知识数、爆款参考数、选题种子数、待分类数和最新commit。

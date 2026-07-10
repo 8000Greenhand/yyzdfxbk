@@ -3,7 +3,7 @@ title: "1个人如何用一天建联300个达人？"
 platform: "小红书"
 source_url: "http://xhslink.com/o/53GoQdQtLa9"
 author: "cling柯林跨境碎碎念"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

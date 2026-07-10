@@ -3,7 +3,7 @@ title: "如何让AI写的东西没有AI味"
 platform: "小红书"
 source_url: "http://xhslink.com/o/8b3xOLRZUO8"
 author: "yan的ai世界"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

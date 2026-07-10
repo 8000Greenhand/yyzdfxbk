@@ -3,7 +3,7 @@ title: "3小时用AI搓了个\"自媒体神器\"📡 不用花钱买工具，让
 platform: "抖音"
 source_url: "https://www.douyin.com/video/7658288075461725474"
 author: "林克AI实战录"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

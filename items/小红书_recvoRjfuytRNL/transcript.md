@@ -3,7 +3,7 @@ title: "人是会突然找到好工作的❗"
 platform: "小红书"
 source_url: "http://xhslink.com/o/62ydk6i6r5V"
 author: "意宝学姐"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

@@ -3,7 +3,7 @@ title: "用codex跑通自媒体运营全流程！运营太烦了！ 这期分享
 platform: "抖音"
 source_url: "https://v.douyin.com/uHu2gPfETYc/"
 author: "珍妮丁丁说AI"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

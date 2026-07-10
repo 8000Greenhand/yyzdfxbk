@@ -3,7 +3,7 @@ title: "一人公司之通过碎片化实践学习 AI 商业知识"
 platform: "小红书"
 source_url: "http://xhslink.com/o/qKyTzVUXyB"
 author: "西门美月匈XD"
-exported_at: "2026-07-09T15:57:29+08:00"
+exported_at: "2026-07-10T17:29:05+08:00"
 ---
 
 # 逐字稿

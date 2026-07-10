@@ -1,0 +1,64 @@
+{
+  "schema_version": "3.0",
+  "card_value": "展示如何把视频链接转成逐字稿、提取知识并沉淀爆款表达。",
+  "summary": "作者展示了自动收集视频、转写、分析并同步到飞书的素材处理方案。",
+  "rewrite_best_topic": "收藏100条爆款还是写不出",
+  "tags": ["视频转写", "爆款拆解", "飞书", "素材管理"],
+  "primary_category": "skill_tools",
+  "category_label": "Skill / 工具",
+  "material_summary": "自动收集视频、转逐字稿、拆爆款并同步到飞书。",
+  "is_viral_reference": true,
+  "content_analysis": {
+    "original_title": "3小时用AI搓了个自媒体神器",
+    "cover_expression": "3小时、自媒体神器、不用花钱",
+    "title_cover": "用时间、低成本和完整结果降低门槛。",
+    "opening_quote": "这是我花了3个小时搓的自媒体神器。",
+    "opening_analysis": "先给成品结果，再解释实现方式。",
+    "structure": ["展示成品", "收集链接", "本地转写", "固定框架分析", "同步飞书"],
+    "click_reason": "结果具体、门槛低。",
+    "save_reason": "流程完整，可反复参考。",
+    "comment_reason": "实现细节仍有追问空间。",
+    "share_reason": "先定框架再让AI填具有迁移价值。",
+    "trust_reason": "展示了真实工具、失败和修正过程。",
+    "conditions": ["必须有真实成品", "必须展示过程"],
+    "copy_risks": ["只照搬神器和3小时会像标题党"]
+  },
+  "knowledge_assets": [
+    {
+      "canonical_name": "FunASR",
+      "knowledge_group": "skill_library",
+      "asset_type": "tool",
+      "one_liner": "本地把视频或音频转成中文逐字稿。",
+      "what_it_solves": "低成本批量转写视频素材。",
+      "how_to_use": ["提取音频", "本地转写", "把文本交给AI分析"],
+      "requirements_and_limits": "安装环境和准确率需要实测。",
+      "source_status": "mentioned",
+      "source_urls": ["https://www.douyin.com/video/7658288075461725474"],
+      "next_action": "查找官方仓库并本地实测。",
+      "dedupe_key": "funasr|tool"
+    }
+  ],
+  "viral_replication": {
+    "reference_title": "3小时用AI搓了个自媒体神器",
+    "reference_cover": "3小时｜自媒体神器｜不用花钱",
+    "reference_opening": "这是我花了3个小时搓的自媒体神器。",
+    "title_rewrites": ["收藏100条爆款还是写不出", "收藏夹为什么变不成选题", "我把爆款收藏做成了素材库"],
+    "opening_rewrites": ["我收藏了很多视频，但真要发内容时还是不知道写什么。", "收藏只完成了保存，没有帮你判断什么值得学。"],
+    "content_structure": ["用户痛点", "展示链路", "解释转写", "展示分析失败", "固定框架", "沉淀结果"],
+    "dry_points": ["先转文字", "固定分析框架", "只处理高价值样本"],
+    "value_anchors": ["收藏变成可利用资产", "减少重复整理"],
+    "trust_proofs": ["真实飞书入口", "逐字稿", "工具名称", "失败过程"],
+    "suitable_topics": ["素材管理", "内容选题", "AI工作台"],
+    "copy_risks": ["只展示系统界面会变成个人炫技"]
+  },
+  "topic_seeds": [
+    {
+      "topic_category": "运营",
+      "topic_name": "收藏100条爆款还是写不出",
+      "user_problem": "收藏无法变成可用选题。",
+      "why_now": "用户普遍有收藏很多但无法利用的问题。",
+      "source": "material",
+      "status": "ready"
+    }
+  ]
+}

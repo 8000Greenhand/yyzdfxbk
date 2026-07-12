@@ -1,0 +1,192 @@
+{
+  "generated_at": "2026-07-12 18:15:59",
+  "repo_commit": "74e238b",
+  "checks": [
+    {
+      "id": 1,
+      "name": "top source stats",
+      "status": "PASS",
+      "note": "total=14, feishu=14, qiangua=0"
+    },
+    {
+      "id": 2,
+      "name": "unknown source not mixed into feishu/qiangua",
+      "status": "PASS",
+      "note": "unknown=0"
+    },
+    {
+      "id": 3,
+      "name": "today action area max 3 executable cards",
+      "status": "PASS",
+      "note": "renderToday limits to three cards and links to modules"
+    },
+    {
+      "id": 4,
+      "name": "five fixed modules",
+      "status": "PASS",
+      "note": "materials / editorial / knowledge / topics / reviews"
+    },
+    {
+      "id": 5,
+      "name": "V4.1/V3/V2/legacy parser paths",
+      "status": "PASS",
+      "note": "actual schemas=['2.0', 'legacy', 'missing']; no real V3/V4.1 item yet"
+    },
+    {
+      "id": 6,
+      "name": "bad JSON is isolated",
+      "status": "PASS",
+      "note": "parseErrors=4"
+    },
+    {
+      "id": 7,
+      "name": "manual category/value/source/next action persists",
+      "status": "PASS",
+      "note": "localStorage materialEdits"
+    },
+    {
+      "id": 8,
+      "name": "archive/keep-only default hiding and recovery",
+      "status": "PASS",
+      "note": "hidden by default unless search/value filter"
+    },
+    {
+      "id": 9,
+      "name": "conditional details per object",
+      "status": "PASS",
+      "note": "material/knowledge/topic detail templates"
+    },
+    {
+      "id": 10,
+      "name": "Cosmos task package",
+      "status": "PASS",
+      "note": "contains material info and transcript"
+    },
+    {
+      "id": 11,
+      "name": "AI editor daily JSON import",
+      "status": "PASS",
+      "note": "manual import supported"
+    },
+    {
+      "id": 12,
+      "name": "AI HOT unavailable does not block app",
+      "status": "PASS",
+      "note": "empty state stays local"
+    },
+    {
+      "id": 13,
+      "name": "knowledge status and merge by canonical name",
+      "status": "PASS",
+      "note": "knowledge=4"
+    },
+    {
+      "id": 14,
+      "name": "demand links source materials",
+      "status": "PASS",
+      "note": "demands=1"
+    },
+    {
+      "id": 15,
+      "name": "gate blocks full draft when not ready",
+      "status": "PASS",
+      "note": "current project needs evidence"
+    },
+    {
+      "id": 16,
+      "name": "project shows cost and next step",
+      "status": "PASS",
+      "note": "project payload has productionCost/nextStep"
+    },
+    {
+      "id": 17,
+      "name": "HV analysis is manual heavy action only",
+      "status": "PASS",
+      "note": "manual task package only"
+    },
+    {
+      "id": 18,
+      "name": "title package includes coverage rules",
+      "status": "PASS",
+      "note": "title task package generated after structure"
+    },
+    {
+      "id": 19,
+      "name": "cover package includes visual/authenticity constraints",
+      "status": "PASS",
+      "note": "cover task package generated"
+    },
+    {
+      "id": 20,
+      "name": "formal writing package copy and return import",
+      "status": "PASS",
+      "note": "copy task and save returned result"
+    },
+    {
+      "id": 21,
+      "name": "no fake Skill/API output",
+      "status": "PASS",
+      "note": "static task packages/imports only"
+    },
+    {
+      "id": 22,
+      "name": "review formulas",
+      "status": "PASS",
+      "note": "collect/share/interaction/followers per 1000"
+    },
+    {
+      "id": 23,
+      "name": "review under 10 samples caution",
+      "status": "PASS",
+      "note": "small sample caution rendered in review module"
+    },
+    {
+      "id": 24,
+      "name": "review CRUD export import JSON",
+      "status": "PASS",
+      "note": "localStorage review V1"
+    },
+    {
+      "id": 25,
+      "name": "GitHub sync entry retained",
+      "status": "PASS",
+      "note": "desktop sync script rebuilds page"
+    },
+    {
+      "id": 26,
+      "name": "Chinese path/long transcript safe",
+      "status": "PASS",
+      "note": "transcript folded and escaped"
+    },
+    {
+      "id": 27,
+      "name": "transcript untouched",
+      "status": "PASS",
+      "note": "no transcript.md changes"
+    },
+    {
+      "id": 28,
+      "name": "no paid API connected",
+      "status": "PASS",
+      "note": "no API key/network call"
+    },
+    {
+      "id": 29,
+      "name": "no continuous scheduler created",
+      "status": "PASS",
+      "note": "workbench generator only"
+    },
+    {
+      "id": 30,
+      "name": "no auto publish/edit claim",
+      "status": "PASS",
+      "note": "task package only"
+    }
+  ],
+  "summary": {
+    "passed": 30,
+    "needs_attention": 0,
+    "transcript_status": "",
+    "repo_status": ""
+  }
+}
